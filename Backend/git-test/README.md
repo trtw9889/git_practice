@@ -1,6 +1,6 @@
 ## Git Command
 
-- `git init`
+- `git init : `
 - `git remote add origin <remote repository url>`
 - `git add <file name>`
 - `git commit`

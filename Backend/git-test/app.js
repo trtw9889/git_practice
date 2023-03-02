@@ -34,10 +34,10 @@ feature/signup 브랜치의 경우 app.post('/users/signup', ...)
 app.post("/users/signup", async (req, res) => {
   const { username, email, password } = req.body;
 
-app.post("/users/signin", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await myDataSource.query(
-    `
+  app.post("/users/signin", async (req, res) => {
+    const { email, password } = req.body;
+    const user = await myDataSource.query(
+      `
     SELECT
       users.id
     FROM
@@ -45,11 +45,12 @@ app.post("/users/signin", async (req, res) => {
     WHERE
       users.email = ?
    `,
-    [email]
-  );
-  if (!user) {
-    res.json({ message: "SIGNUP_REQUIRED" });
-  }
+      [email]
+    );
+    if (!user) {
+      res.json({ message: "SIGNUP_REQUIRED" });
+    }
+  });
 
   return res.json({ userId: user.id });
   return await myDataSource.query(
